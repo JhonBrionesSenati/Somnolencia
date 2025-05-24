@@ -1,0 +1,64 @@
+# Entornos virtuales
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Archivos compilados por Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de configuración del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+
+# Configuraciones de editores/IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Distribuciones
+dist/
+build/
+*.egg-info/
+
+# Archivos de pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Archivos de test
+htmlcov/
+.tox/
+.nox/
+coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Base de datos temporal
+*.sqlite3
+
+# Archivos de Jupyter
+.ipynb_checkpoints/
+
+# Archivos temporales y de backup
+*.bak
+*.swp
+*.tmp
+*.orig
+
+# Archivos de configuración local
+.env
+.env.* 
+*.env
+
+# Archivos relacionados a PyInstaller
+*.spec

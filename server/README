@@ -1,0 +1,22 @@
+server/
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── core/
+│   │   └── config.py
+│   ├── api/
+│   │   └── routes.py
+│   ├── services/
+│   │   └── detection_service.py
+│   ├── models/
+│   │   └── evento_model.py
+│   └── utils/
+│       └── image_utils.py
+│
+├── database.db
+├── requirements.txt
+
+
+Ejecutar:
+uvicorn app.main:app --reload
