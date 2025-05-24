@@ -74,7 +74,7 @@ const CameraFeed = () => {
     const base64Clean = frame.replace(/^data:image\/\w+;base64,/, "")
 
     try {
-      const res = await fetch("http://localhost:8000/api/deteccion/fatiga", {
+      const res = await fetch("https://somnolencia.onrender.com/api/deteccion/fatiga", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ image: base64Clean }),
