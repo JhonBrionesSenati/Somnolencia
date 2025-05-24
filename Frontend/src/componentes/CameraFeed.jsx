@@ -74,7 +74,7 @@ const CameraFeed = () => {
     const base64Clean = frame.replace(/^data:image\/\w+;base64,/, "")
 
     try {
-      const res = await fetch("https://somnolencia.onrender.com/api/deteccion/fatiga", {
+      const res = await fetch("http://localhost:8000/api/deteccion/fatiga", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ image: base64Clean }),
@@ -123,52 +123,54 @@ const CameraFeed = () => {
   }, [isCameraOn])
 
   return (
-    <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-2xl shadow-2xl max-w-5xl mx-auto border border-slate-600">
+    <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 md:p-6 rounded-2xl shadow-2xl w-full border border-green-200">
       {/* Header simplificado */}
-      <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-white mb-2 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+      <div className="text-center mb-4 md:mb-6">
+        <h2 className="text-xl md:text-2xl font-bold text-green-800 mb-2 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
           Monitor de Fatiga en Vivo
         </h2>
-        <p className="text-slate-400">Sistema de detección inteligente activado</p>
+        <p className="text-green-600 text-sm md:text-base">Sistema de detección inteligente activado</p>
       </div>
 
       {/* Video oculto para capturar frames */}
       <video ref={videoRef} autoPlay playsInline style={{ display: "none" }} />
 
       {/* Canvas principal con diseño mejorado */}
-      <div className="relative mb-6">
+      <div className="relative mb-4 md:mb-6">
         <canvas
           ref={canvasRef}
-          className="w-full h-96 bg-gradient-to-br from-slate-900 to-black border-2 border-slate-600 rounded-xl shadow-inner"
+          className="w-full h-48 md:h-80 bg-gradient-to-br from-green-100 to-emerald-100 border-2 border-green-300 rounded-xl shadow-inner"
         />
 
         {/* Overlay de estado */}
-        <div className="absolute top-4 left-4 flex items-center space-x-2">
-          <div className={`w-3 h-3 rounded-full ${isCameraOn ? "bg-green-400 animate-pulse" : "bg-red-400"}`}></div>
-          <span className="text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full">
+        <div className="absolute top-2 md:top-4 left-2 md:left-4 flex items-center space-x-2">
+          <div
+            className={`w-2 md:w-3 h-2 md:h-3 rounded-full ${isCameraOn ? "bg-emerald-500 animate-pulse" : "bg-red-500"}`}
+          ></div>
+          <span className="text-green-800 text-xs md:text-sm font-medium bg-white/80 px-2 md:px-3 py-1 rounded-full backdrop-blur-sm">
             {isCameraOn ? "EN VIVO" : "DESCONECTADO"}
           </span>
         </div>
 
         {/* Indicador de audio */}
-        <div className="absolute top-4 right-4">
-          <span className="text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full flex items-center space-x-2">
-            <span className="text-green-400">🔊</span>
-            <span>Audio Activo</span>
+        <div className="absolute top-2 md:top-4 right-2 md:right-4">
+          <span className="text-green-800 text-xs md:text-sm font-medium bg-white/80 px-2 md:px-3 py-1 rounded-full flex items-center space-x-1 md:space-x-2 backdrop-blur-sm">
+            <span className="text-emerald-500">🔊</span>
+            <span className="hidden md:inline">Audio Activo</span>
           </span>
         </div>
       </div>
 
       {/* Controles principales */}
-      <div className="flex justify-center items-center mb-6">
+      <div className="flex justify-center items-center mb-4 md:mb-6">
         {!isCameraOn ? (
           <button
             onClick={startCamera}
-            className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full shadow-xl hover:shadow-green-500/25 hover:scale-105 transform"
+            className="group relative inline-flex items-center justify-center px-4 md:px-8 py-3 md:py-4 text-sm md:text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-emerald-600 to-green-600 rounded-full shadow-xl hover:shadow-emerald-500/25 hover:scale-105 transform"
           >
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-700 to-emerald-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            <span className="relative flex items-center space-x-3">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-emerald-700 to-green-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            <span className="relative flex items-center space-x-2 md:space-x-3">
+              <svg className="w-4 md:w-6 h-4 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -182,11 +184,11 @@ const CameraFeed = () => {
         ) : (
           <button
             onClick={stopCamera}
-            className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-red-600 to-rose-600 rounded-full shadow-xl hover:shadow-red-500/25 hover:scale-105 transform"
+            className="group relative inline-flex items-center justify-center px-4 md:px-8 py-3 md:py-4 text-sm md:text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-xl hover:shadow-red-500/25 hover:scale-105 transform"
           >
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-red-700 to-rose-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            <span className="relative flex items-center space-x-3">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-red-600 to-red-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            <span className="relative flex items-center space-x-2 md:space-x-3">
+              <svg className="w-4 md:w-6 h-4 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -207,9 +209,9 @@ const CameraFeed = () => {
       </div>
 
       {/* Panel de eventos */}
-      <div className="bg-gradient-to-br from-slate-900 to-black p-6 rounded-xl border border-slate-600">
-        <h3 className="text-xl font-semibold text-white mb-4 flex items-center space-x-2">
-          <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="bg-white/80 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-green-200">
+        <h3 className="text-lg md:text-xl font-semibold text-green-800 mb-3 md:mb-4 flex items-center space-x-2">
+          <svg className="w-5 md:w-6 h-5 md:h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -221,32 +223,32 @@ const CameraFeed = () => {
         </h3>
 
         {eventos.length > 0 ? (
-          <div className="space-y-3 max-h-40 overflow-y-auto">
+          <div className="space-y-2 md:space-y-3 max-h-32 md:max-h-40 overflow-y-auto">
             {eventos.map((evento, index) => (
               <div
                 key={index}
-                className={`p-4 rounded-xl shadow-lg border-l-4 ${
+                className={`p-3 md:p-4 rounded-xl shadow-lg border-l-4 ${
                   evento.nombre_evento === "OJOS CERRADOS"
-                    ? "bg-red-900/30 border-red-400 text-red-100"
+                    ? "bg-red-50 border-red-400 text-red-800"
                     : evento.nombre_evento === "BOCA ABIERTA"
-                      ? "bg-yellow-900/30 border-yellow-400 text-yellow-100"
+                      ? "bg-amber-50 border-amber-400 text-amber-800"
                       : evento.nombre_evento === "MANO A LA BOCA"
-                        ? "bg-orange-900/30 border-orange-400 text-orange-100"
-                        : "bg-gray-900/30 border-gray-400 text-gray-100"
+                        ? "bg-orange-50 border-orange-400 text-orange-800"
+                        : "bg-gray-50 border-gray-400 text-gray-800"
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-medium">{evento.nombre_evento}</span>
-                  <span className="text-sm opacity-75">{evento.timestamp}</span>
+                  <span className="font-medium text-sm md:text-base">{evento.nombre_evento}</span>
+                  <span className="text-xs md:text-sm opacity-75">{evento.timestamp}</span>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-8">
-            <div className="text-slate-500 text-6xl mb-4">😴</div>
-            <p className="text-slate-400">No hay eventos detectados aún</p>
-            <p className="text-slate-500 text-sm mt-2">El sistema está monitoreando...</p>
+          <div className="text-center py-6 md:py-8">
+            <div className="text-green-400 text-4xl md:text-6xl mb-3 md:mb-4">😴</div>
+            <p className="text-green-600 text-sm md:text-base">No hay eventos detectados aún</p>
+            <p className="text-green-500 text-xs md:text-sm mt-2">El sistema está monitoreando...</p>
           </div>
         )}
       </div>
