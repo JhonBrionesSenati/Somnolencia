@@ -362,7 +362,6 @@ const CameraFeed = () => {
           <div className="text-center py-8 md:py-12">
             <p className="text-emerald-700 text-lg md:text-xl font-bold mb-2">No hay eventos detectados aún</p>
             <p className="text-emerald-600 text-base md:text-lg font-medium mb-3">El sistema está monitoreando...</p>
-            
           </div>
         )}
       </div>
