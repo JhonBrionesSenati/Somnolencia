@@ -174,8 +174,9 @@ function App() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10 mb-20">
-            <div className="bg-white/90 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border-2 border-emerald-100 hover:border-emerald-300 transition-all duration-500 group hover:shadow-emerald-200/50 hover:-translate-y-2">
+          {/* Grid de 5 características - ahora incluye los nuevos eventos */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-20">
+            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border-2 border-emerald-100 hover:border-emerald-300 transition-all duration-500 group hover:shadow-emerald-200/50 hover:-translate-y-2">
               <div className="text-emerald-600 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <div className="bg-emerald-100 p-4 rounded-2xl inline-block">
                   <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,16 +195,16 @@ function App() {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-emerald-900 mb-4">Detección Ocular</h3>
-              <p className="text-emerald-700 mb-6 text-lg leading-relaxed">
-                Monitoreo preciso del estado de los ojos para detectar microsueños y parpadeo prolongado
+              <h3 className="text-xl font-bold text-emerald-900 mb-3">Detección Ocular</h3>
+              <p className="text-emerald-700 mb-4 text-sm leading-relaxed">
+                Monitoreo preciso del estado de los ojos para detectar microsueños
               </p>
-              <div className="text-emerald-600 font-bold text-lg">
-                <span className="bg-emerald-100 px-3 py-1 rounded-full">Precisión: 95%+</span>
+              <div className="text-emerald-600 font-bold text-sm">
+                <span className="bg-emerald-100 px-2 py-1 rounded-full">Precisión: 95%+</span>
               </div>
             </div>
 
-            <div className="bg-white/90 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border-2 border-green-100 hover:border-green-300 transition-all duration-500 group hover:shadow-green-200/50 hover:-translate-y-2">
+            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border-2 border-green-100 hover:border-green-300 transition-all duration-500 group hover:shadow-green-200/50 hover:-translate-y-2">
               <div className="text-green-600 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <div className="bg-green-100 p-4 rounded-2xl inline-block">
                   <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,16 +217,16 @@ function App() {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-green-900 mb-4">Análisis Facial</h3>
-              <p className="text-green-700 mb-6 text-lg leading-relaxed">
-                Detección de bostezos y expresiones faciales que indican fatiga o somnolencia
+              <h3 className="text-xl font-bold text-green-900 mb-3">Análisis Facial</h3>
+              <p className="text-green-700 mb-4 text-sm leading-relaxed">
+                Detección de expresiones faciales que indican fatiga
               </p>
-              <div className="text-green-600 font-bold text-lg">
-                <span className="bg-green-100 px-3 py-1 rounded-full">Respuesta: {"<"} 500ms</span>
+              <div className="text-green-600 font-bold text-sm">
+                <span className="bg-green-100 px-2 py-1 rounded-full">Respuesta: {"<"} 500ms</span>
               </div>
             </div>
 
-            <div className="bg-white/90 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border-2 border-teal-100 hover:border-teal-300 transition-all duration-500 group hover:shadow-teal-200/50 hover:-translate-y-2">
+            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border-2 border-teal-100 hover:border-teal-300 transition-all duration-500 group hover:shadow-teal-200/50 hover:-translate-y-2">
               <div className="text-teal-600 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <div className="bg-teal-100 p-4 rounded-2xl inline-block">
                   <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -238,17 +239,63 @@ function App() {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-teal-900 mb-4">Detección de Gestos</h3>
-              <p className="text-teal-700 mb-6 text-lg leading-relaxed">
-                Reconocimiento de movimientos de manos hacia la cara que indican cansancio
+              <h3 className="text-xl font-bold text-teal-900 mb-3">Detección de Gestos</h3>
+              <p className="text-teal-700 mb-4 text-sm leading-relaxed">
+                Reconocimiento de movimientos de manos hacia la cara
               </p>
-              <div className="text-teal-600 font-bold text-lg">
-                <span className="bg-teal-100 px-3 py-1 rounded-full">MediaPipe AI</span>
+              <div className="text-teal-600 font-bold text-sm">
+                <span className="bg-teal-100 px-2 py-1 rounded-full">MediaPipe AI</span>
+              </div>
+            </div>
+
+            {/* NUEVO: Detección de Bostezos */}
+            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border-2 border-yellow-100 hover:border-yellow-300 transition-all duration-500 group hover:shadow-yellow-200/50 hover:-translate-y-2">
+              <div className="text-yellow-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-yellow-100 p-4 rounded-2xl inline-block">
+                  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-yellow-900 mb-3">Detección de Bostezos</h3>
+              <p className="text-yellow-700 mb-4 text-sm leading-relaxed">
+                Identifica bostezos prolongados como señal de fatiga extrema
+              </p>
+              <div className="text-yellow-600 font-bold text-sm">
+                <span className="bg-yellow-100 px-2 py-1 rounded-full">Fatiga Extrema</span>
+              </div>
+            </div>
+
+            {/* NUEVO: Inclinación de Cabeza */}
+            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border-2 border-purple-100 hover:border-purple-300 transition-all duration-500 group hover:shadow-purple-200/50 hover:-translate-y-2">
+              <div className="text-purple-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-purple-100 p-4 rounded-2xl inline-block">
+                  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-purple-900 mb-3">Inclinación de Cabeza</h3>
+              <p className="text-purple-700 mb-4 text-sm leading-relaxed">
+                Detecta cuando la cabeza se inclina por pérdida de control
+              </p>
+              <div className="text-purple-600 font-bold text-sm">
+                <span className="bg-purple-100 px-2 py-1 rounded-full">Microsueño</span>
               </div>
             </div>
           </div>
 
-          {/* Estadísticas */}
+          {/* Estadísticas actualizadas */}
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center bg-gradient-to-br from-emerald-100 to-emerald-50 p-8 rounded-3xl border-2 border-emerald-200 shadow-xl">
               <div className="text-5xl font-black text-emerald-800 mb-3">95%</div>
@@ -259,25 +306,57 @@ function App() {
               <div className="text-green-700 font-semibold text-lg">Tiempo de alerta</div>
             </div>
             <div className="text-center bg-gradient-to-br from-teal-100 to-teal-50 p-8 rounded-3xl border-2 border-teal-200 shadow-xl">
-              <div className="text-5xl font-black text-teal-800 mb-3">24/7</div>
-              <div className="text-teal-700 font-semibold text-lg">Monitoreo continuo</div>
+              <div className="text-5xl font-black text-teal-800 mb-3">5</div>
+              <div className="text-teal-700 font-semibold text-lg">Tipos de eventos</div>
             </div>
             <div className="text-center bg-gradient-to-br from-lime-100 to-lime-50 p-8 rounded-3xl border-2 border-lime-200 shadow-xl">
-              <div className="text-5xl font-black text-lime-800 mb-3">0%</div>
-              <div className="text-lime-700 font-semibold text-lg">Falsos positivos</div>
+              <div className="text-5xl font-black text-lime-800 mb-3">24/7</div>
+              <div className="text-lime-700 font-semibold text-lg">Monitoreo continuo</div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Cómo Funciona */}
+      {/* Cómo Funciona - Actualizado con nuevos eventos */}
       <div className="py-24 bg-gradient-to-b from-green-50 to-emerald-100">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl font-black text-emerald-900 mb-8 tracking-tight">¿Cómo Funciona?</h2>
-            <p className="text-xl md:text-2xl text-emerald-700 font-medium">Proceso simple y automático en 4 pasos</p>
+            <p className="text-xl md:text-2xl text-emerald-700 font-medium">
+              Detección avanzada de 5 tipos de eventos de fatiga
+            </p>
           </div>
 
+          {/* Eventos detectados */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
+            <div className="text-center bg-white/80 p-6 rounded-2xl shadow-lg border-2 border-red-200">
+              <div className="text-4xl mb-3">👁️</div>
+              <h4 className="font-bold text-red-800 mb-2">Ojos Cerrados</h4>
+              <p className="text-red-600 text-sm">Microsueños detectados</p>
+            </div>
+            <div className="text-center bg-white/80 p-6 rounded-2xl shadow-lg border-2 border-orange-200">
+              <div className="text-4xl mb-3">😮</div>
+              <h4 className="font-bold text-orange-800 mb-2">Boca Abierta</h4>
+              <p className="text-orange-600 text-sm">Respiración irregular</p>
+            </div>
+            <div className="text-center bg-white/80 p-6 rounded-2xl shadow-lg border-2 border-yellow-200">
+              <div className="text-4xl mb-3">🥱</div>
+              <h4 className="font-bold text-yellow-800 mb-2">Bostezo</h4>
+              <p className="text-yellow-600 text-sm">Fatiga extrema</p>
+            </div>
+            <div className="text-center bg-white/80 p-6 rounded-2xl shadow-lg border-2 border-purple-200">
+              <div className="text-4xl mb-3">🔄</div>
+              <h4 className="font-bold text-purple-800 mb-2">Inclinación</h4>
+              <p className="text-purple-600 text-sm">Pérdida de control</p>
+            </div>
+            <div className="text-center bg-white/80 p-6 rounded-2xl shadow-lg border-2 border-teal-200">
+              <div className="text-4xl mb-3">✋</div>
+              <h4 className="font-bold text-teal-800 mb-2">Mano a la Cara</h4>
+              <p className="text-teal-600 text-sm">Frotarse los ojos</p>
+            </div>
+          </div>
+
+          {/* Proceso en 4 pasos */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div className="text-center group">
               <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-2xl border-4 border-emerald-200">
@@ -295,7 +374,7 @@ function App() {
               </div>
               <h3 className="text-xl font-bold text-green-900 mb-4">Análisis con IA</h3>
               <p className="text-green-700 leading-relaxed font-medium">
-                MediaPipe analiza puntos faciales y detecta patrones de fatiga
+                MediaPipe analiza 468 puntos faciales y detecta patrones de fatiga
               </p>
             </div>
 
@@ -303,9 +382,9 @@ function App() {
               <div className="bg-gradient-to-br from-teal-500 to-teal-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-2xl border-4 border-teal-200">
                 <span className="text-white font-black text-2xl">3</span>
               </div>
-              <h3 className="text-xl font-bold text-teal-900 mb-4">Detección de Eventos</h3>
+              <h3 className="text-xl font-bold text-teal-900 mb-4">Detección de 5 Eventos</h3>
               <p className="text-teal-700 leading-relaxed font-medium">
-                Identifica ojos cerrados, bostezos y gestos de cansancio
+                Identifica ojos cerrados, bostezos, inclinación y gestos de cansancio
               </p>
             </div>
 
@@ -343,7 +422,7 @@ function App() {
                   <div>
                     <h4 className="font-bold text-emerald-900 text-xl mb-2">Mayor Seguridad</h4>
                     <p className="text-emerald-700 leading-relaxed font-medium">
-                      Protección contra accidentes por fatiga
+                      Protección contra accidentes por fatiga con detección de 5 tipos de eventos
                     </p>
                   </div>
                 </div>
@@ -352,7 +431,7 @@ function App() {
                   <div>
                     <h4 className="font-bold text-green-900 text-xl mb-2">Cuidado de la Salud</h4>
                     <p className="text-green-700 leading-relaxed font-medium">
-                      Prevención de problemas por falta de descanso
+                      Prevención de problemas por falta de descanso y microsueños
                     </p>
                   </div>
                 </div>
@@ -361,7 +440,7 @@ function App() {
                   <div>
                     <h4 className="font-bold text-teal-900 text-xl mb-2">Mejor Rendimiento</h4>
                     <p className="text-teal-700 leading-relaxed font-medium">
-                      Mantiene la concentración durante el viaje
+                      Mantiene la concentración y postura correcta durante el viaje
                     </p>
                   </div>
                 </div>
@@ -384,7 +463,9 @@ function App() {
                   <div className="text-orange-600 mt-1 bg-orange-100 p-3 rounded-full">📋</div>
                   <div>
                     <h4 className="font-bold text-orange-900 text-xl mb-2">Cumplimiento Legal</h4>
-                    <p className="text-orange-700 leading-relaxed font-medium">Registro de eventos para auditorías</p>
+                    <p className="text-orange-700 leading-relaxed font-medium">
+                      Registro detallado de 5 tipos de eventos para auditorías
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-6 p-6 bg-gradient-to-r from-emerald-50 to-white rounded-2xl border-2 border-emerald-100 shadow-lg hover:shadow-xl transition-all duration-300">
@@ -392,7 +473,7 @@ function App() {
                   <div>
                     <h4 className="font-bold text-emerald-900 text-xl mb-2">Análisis de Datos</h4>
                     <p className="text-emerald-700 leading-relaxed font-medium">
-                      Estadísticas para mejorar operaciones
+                      Estadísticas avanzadas para mejorar operaciones y rutas
                     </p>
                   </div>
                 </div>
